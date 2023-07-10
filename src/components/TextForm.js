@@ -10,12 +10,14 @@ export default function TextForm(props) {
         let newtext= text.toUpperCase()
     //    console.log("uppercase was clicked "+text)
         setText(newtext); 
+        props.setsAlert("converted to uppercase! ",'success')
     }
 
     const lowercaseclk=()=>{
         let newtext= text.toLowerCase()
       //  console.log("uppercase was clicked "+text)
         setText(newtext); 
+        props.setsAlert("converted to lowercase! ",'success')
     }
 
     const handleonchange=(event)=>{
@@ -25,17 +27,20 @@ export default function TextForm(props) {
     const clearclk=()=>{
         let cleartext= ''
         setText(cleartext)
+        props.setsAlert("textbox cleared! ",'success')
     }
      
     const copytext=()=>{
       var text= document.getElementById("textbox")
       text.select();
       navigator.clipboard.writeText(text.value);
+      props.setsAlert("text copied to clipboard ",'success')
     }
 
     const removespaces=()=>{
       let newtext= text.split(/[ ]+/);
       setText(newtext.join(" "))
+      props.setsAlert("spaces removed. ",'success')
     }
     //    
   return (
@@ -71,7 +76,7 @@ export default function TextForm(props) {
 
 
 TextForm.propTypes={
-    heading: PropTypes.string.isRequired,
+    heading: PropTypes.string,
 
 }
 

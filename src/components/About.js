@@ -1,5 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 export default function About() {
 
@@ -10,7 +16,7 @@ export default function About() {
 
     const [btntext, newbtntext]= useState('Enable dark mode')
    const toggleStyle=()=>{
-    if(myStyle.color=='black'){
+    if(myStyle.color==='black'){
         newStyle({
             color:"white",
             backgroundColor:'black',
